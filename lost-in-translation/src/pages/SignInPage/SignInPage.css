@@ -1,0 +1,41 @@
+.SignInPage{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.sign-in-page-container {
+   width: 100%;
+   background-color: rgba(254, 198, 94, 255);
+   height: calc(50vh - 3rem);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 2rem;
+}
+
+.sign-in-field-positioner{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   position: relative;
+   top: -2.5rem;
+}
+
+.sign-in-page-icon{
+   height: 70%;
+   width: auto;
+}
+
+.sign-in-page-title-wrapper{
+   display: flex;
+   flex-direction: column;
+   gap: 0;
+}
+
+.sign-in-page-title-wrapper h1, .sign-in-page-title-wrapper h2 {
+   margin: 0;
+   color: white;
+}
