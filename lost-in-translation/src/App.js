@@ -1,11 +1,10 @@
 import './App.css';
+import InputField from './components/InputField/InputField';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Initial commit</h1>
-      </header>
+      <InputField placeholder={"Whats your name?"}/>
     </div>
   );
 }
