@@ -8,12 +8,20 @@
 
 .profile-display {
   height: 50%;
-  width: 100%;
   background-color: rgba(254, 198, 94, 255);
   display: flex;
   flex-direction: row;
   align-items: center;
   
+}
+.profile-display-wrapper{
+  width: 100%;
+  height:50%;
+  background-color: rgba(254, 198, 94, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .profile-picture-wrapper {
@@ -21,7 +29,6 @@
   border-radius: 50%;
   z-index: 1;
   border: 2px solid rgba(231, 179, 85, 255);
-  margin-left: 10%;
 }
 
 .bs-person-fill {
@@ -52,4 +59,9 @@
    width: 100%;
    gap: 2rem;
    align-items: center;
+}
+
+.cg-log-out{
+  color: white;
+  cursor: pointer;
 }

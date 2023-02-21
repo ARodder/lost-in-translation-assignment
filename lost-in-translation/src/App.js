@@ -4,14 +4,25 @@ import SignInPage from "./pages/SignInPage/SignInPage";
 import TranslationPage from "./pages/TranslationPage/TranslationPage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setUser } from "./store/userSlice";
 
 export default function App() {
-  const loggedIn = false;
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    const storedUser = localStorage.getItem("user");
+    if(storedUser){
+      dispatch(setUser(JSON.parse(storedUser)));
+    }
+  },[])
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        {loggedIn ? (
+        {!user.username ? (
           <SignInPage />
         ) : (
           <Routes>
