@@ -1,0 +1,23 @@
+
+.TranslationCard{
+   width: 40rem;
+   height: 7rem;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   border-radius: 1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.translation-card-decorative-line{
+   height: 1rem;
+   width: 100%;
+   background-color: rgba(133,94,195,255);
+   border-radius: 0 0 1rem 1rem;
+}
+
+.translation-history-word{
+   font-family: 'Sanchez',cursive;
+   margin: 1rem;
+   text-overflow: ellipsis;
+}
