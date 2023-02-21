@@ -1,8 +1,15 @@
 import "./SignInPage.css";
 import InputField from "../../components/InputField/InputField"
 import RobotImage from "../../assets/Logo-Hello.png"
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/userSlice";
 
 function SignInPage(){
+   const dispatch = useDispatch();
+
+   function submitUsername(username){
+      dispatch(setUser({username:username,translations:[]}));
+   }
 
    return (
       <div className="SignInPage">
@@ -14,7 +21,7 @@ function SignInPage(){
             </div>
          </div>
          <div className="sign-in-field-positioner">
-         <InputField placeholder={"Whats your name?"}/>
+         <InputField placeholder={"Whats your name?"} onSubmit={submitUsername}/>
          </div>
       </div>
    )
