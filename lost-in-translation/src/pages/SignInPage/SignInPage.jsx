@@ -1,6 +1,6 @@
 import "./SignInPage.css";
 import InputField from "../../components/InputField/InputField"
-import RobotImage from "../../assets/robot_icon.png"
+import RobotImage from "../../assets/Logo-Hello.png"
 
 function SignInPage(){
 
