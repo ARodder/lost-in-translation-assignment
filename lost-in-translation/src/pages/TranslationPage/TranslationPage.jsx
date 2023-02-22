@@ -2,7 +2,7 @@ import InputField from "../../components/InputField/InputField";
 import "./TranslationPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addTranslationAsync } from "../../store/userSlice";
+import { setTranslationAsync } from "../../store/userSlice";
 
 function TranslationPage() {
   const dispatch = useDispatch();
@@ -12,26 +12,40 @@ function TranslationPage() {
     setCurrentTranslation(input);
     let newTranslations = [...user.translations];
     newTranslations.unshift(input);
-    if(newTranslations.length > 10) newTranslations.splice(newTranslations.length-1,newTranslations.length);
-    dispatch(addTranslationAsync({ id: user.id, translations: newTranslations }));
+    if (newTranslations.length > 10)
+      newTranslations.splice(
+        newTranslations.length - 1,
+        newTranslations.length
+      );
+    dispatch(
+      setTranslationAsync({ id: user.id, translations: newTranslations })
+    );
   }
   return (
     <div className="TranslationPage">
       <div className="translation-page-search-field">
         <InputField placeholder={"Translation..."} onSubmit={onTranslate} />
       </div>
+      <h1 className="translation-display-header">Translation</h1>
       <div className="translation-display-wrapper">
         <div className="translation-display">
           <div className="translation">
-            {currentTranslation.toLowerCase().replaceAll(" ","").split("").map((letter, index) => (
-               /[a-z]/.test(letter) ?
-              <img
-              className="translation-display-letter"
-                alt={letter}
-                key={"translated-letter-" + letter + "-" + index}
-                src={require("../../assets/individual_signs/"+letter+".png")}
-              />:null
-            ))}
+            {currentTranslation
+              .toLowerCase()
+              .replaceAll(" ", "")
+              .split("")
+              .map((letter, index) =>
+                /[a-z]/.test(letter) ? (
+                  <img
+                    className="translation-display-letter"
+                    alt={letter}
+                    key={"translated-letter-" + letter + "-" + index}
+                    src={require("../../assets/individual_signs/" +
+                      letter +
+                      ".png")}
+                  />
+                ) : null
+              )}
           </div>
           <div className="translation-display-decorative-line"></div>
         </div>

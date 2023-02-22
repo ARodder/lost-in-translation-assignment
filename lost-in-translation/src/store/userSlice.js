@@ -32,7 +32,7 @@ export const getUserAsync = createAsyncThunk(
   }
 );
 
-export const addTranslationAsync = createAsyncThunk(
+export const setTranslationAsync = createAsyncThunk(
    "user/addTranslationAsync",
    async (payload) => {
       console.log()
@@ -66,7 +66,7 @@ export const userSlice = createSlice({
     [getUserAsync.fulfilled]: (state, action) => {
       return action.payload.user;
     },
-    [addTranslationAsync.fulfilled]: (state,action) => {
+    [setTranslationAsync.fulfilled]: (state,action) => {
       return action.payload.user;
     }
   },
