@@ -4,11 +4,9 @@ import userSlice from './userSlice';
 
 
 const persistMiddleware = (store) => (next) => (action) => {
+   const allowedPersisted = ['user/setUser','user/getUserAsync/fulfilled','user/addTranslationAsync/fulfilled']
    const result = next(action);
-   if(action.type === 'user/setUser' && action.payload.user){
-      localStorage.setItem("user",JSON.stringify(action.payload.user))
-   }
-   if(action.type === 'user/getUserAsync/fulfilled' && action.payload.user){
+   if(allowedPersisted.includes(action.type) && action.payload.user){
       localStorage.setItem("user",JSON.stringify(action.payload.user))
    }
    if(action.type === 'user/removeUser'){
