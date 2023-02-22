@@ -6,6 +6,11 @@ import "./ProfilePage.css";
 import { removeUser, setTranslationAsync } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Builds a profile-page based on the profile of the logged in user.
+ * 
+ * @returns {JSX.Element} The rendered ProfilePage page.
+ */
 export default function ProfilePage() {
    const user = useSelector(state=>state.user);
    const navigate = useNavigate();

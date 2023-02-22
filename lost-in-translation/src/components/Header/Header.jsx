@@ -2,6 +2,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
 
+/**
+ * A React component that renders a header with a title and a profile button if the user is logged in.
+ * @function Header
+ * @returns {JSX.Element} A React element representing the header.
+ */
 function Header() {
   const user = useSelector(state => state.user);
   const navigate = useNavigate();

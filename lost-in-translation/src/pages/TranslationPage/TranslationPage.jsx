@@ -4,6 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { setTranslationAsync } from "../../store/userSlice";
 
+/**
+ * Builds a translation page to allow the user to generate a translation.
+ * 
+ * @returns {JSX.Element} The rendered TranslationPage page.
+ */
 function TranslationPage() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);

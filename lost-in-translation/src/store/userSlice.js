@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+/**
+ * Creates a thunk for retrieving the user data from the backend-api
+ */
 export const getUserAsync = createAsyncThunk(
   "user/getUserAsync",
   async (payload) => {
@@ -33,6 +36,9 @@ export const getUserAsync = createAsyncThunk(
   }
 );
 
+/**
+ * Creates a thunk to update the translation-history of the user.
+ */
 export const setTranslationAsync = createAsyncThunk(
    "user/addTranslationAsync",
    async (payload) => {
@@ -52,7 +58,9 @@ export const setTranslationAsync = createAsyncThunk(
        }
    }
 )
-
+/**
+ * Creates a reducer for keeping the state of the user-data.
+ */
 export const userSlice = createSlice({
   name: "user",
   initialState: {},

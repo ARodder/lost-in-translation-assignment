@@ -2,7 +2,10 @@ import {configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlice';
 
 
-
+/**
+ * Creates a redux middleware to persist the user to localStorage when it is updated.
+ * @returns returns the action for the next stage of the reducer. 
+ */
 const persistMiddleware = (store) => (next) => (action) => {
    const allowedPersisted = ['user/setUser','user/getUserAsync/fulfilled','user/addTranslationAsync/fulfilled']
    const result = next(action);
@@ -15,7 +18,9 @@ const persistMiddleware = (store) => (next) => (action) => {
    return result;
 }
 
-
+/**
+ * Configures the redux store.
+ */
 export default configureStore({
    reducer:{
       user: userSlice,
