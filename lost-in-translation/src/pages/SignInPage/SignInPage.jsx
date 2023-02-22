@@ -2,13 +2,13 @@ import "./SignInPage.css";
 import InputField from "../../components/InputField/InputField"
 import RobotImage from "../../assets/Logo-Hello.png"
 import { useDispatch } from "react-redux";
-import { setUser } from "../../store/userSlice";
+import { getUserAsync, setUser } from "../../store/userSlice";
 
 function SignInPage(){
    const dispatch = useDispatch();
 
    function submitUsername(username){
-      dispatch(setUser({username:username,translations:[]}));
+      dispatch(getUserAsync(username));
    }
 
    return (

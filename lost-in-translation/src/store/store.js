@@ -1,15 +1,18 @@
 import {configureStore } from '@reduxjs/toolkit';
 import userSlice from './userSlice';
-import thunkMiddleware from 'redux-thunk';
 
 
 
 const persistMiddleware = (store) => (next) => (action) => {
    const result = next(action);
-
-   console.log(result);
-   if(action.type === 'user/setUser'){
-      localStorage.setItem("user",JSON.stringify(action.payload))
+   if(action.type === 'user/setUser' && action.payload.user){
+      localStorage.setItem("user",JSON.stringify(action.payload.user))
+   }
+   if(action.type === 'user/getUserAsync/fulfilled' && action.payload.user){
+      localStorage.setItem("user",JSON.stringify(action.payload.user))
+   }
+   if(action.type === 'user/removeUser'){
+      localStorage.setItem("user",JSON.stringify({}))
    }
    return result;
 }

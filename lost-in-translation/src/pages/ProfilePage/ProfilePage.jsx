@@ -3,7 +3,7 @@ import BsPersonFill from "../../components/BsPersonFill/BsPersonFill";
 import TranslationCard from "../../components/TranslationCard/TranslationCard";
 import CgLogOut from "../../components/CgLogOut/CgLogOut";
 import "./ProfilePage.css";
-import { setUser } from "../../store/userSlice";
+import { removeUser } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
@@ -20,7 +20,7 @@ export default function ProfilePage() {
         </div>
         <span className="profile-username-wrapper">{user.username}</span>
       </div>
-      <CgLogOut height="10rem" width="10rem" className="cg-log-out" onClick={()=>{dispatch(setUser({}));navigate("/")}}/>
+      <CgLogOut height="10rem" width="10rem" className="cg-log-out" onClick={()=>{dispatch(removeUser());navigate("/")}}/>
       </div>
       
 
