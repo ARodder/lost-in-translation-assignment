@@ -1,6 +1,15 @@
 import { useState } from "react";
 import "./InputField.css";
 
+
+/**
+ * A React component that renders an input field with a specific layout, and functionality.
+ * @function InputField
+ * @param {Object} props - The props object that contains the placeholder text and onSubmit callback function.
+ * @param {string} props.placeholder - The placeholder text for the input field.
+ * @param {Function} props.onSubmit - The callback function to be called when the user submits the input.
+ * @returns {JSX.Element} A React element representing the input field.
+ */
 function InputField({ placeholder, onSubmit }) {
   const [inputWord, setInputWord] = useState("");
   

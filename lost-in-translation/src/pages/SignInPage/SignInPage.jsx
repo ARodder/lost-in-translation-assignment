@@ -4,6 +4,11 @@ import RobotImage from "../../assets/Logo-Hello.png"
 import { useDispatch } from "react-redux";
 import { getUserAsync, setUser } from "../../store/userSlice";
 
+/**
+ * Builds a signInPage to allow users to log in.
+ * 
+ * @returns {JSX.Element} The rendered SignInPage page.
+ */
 function SignInPage(){
    const dispatch = useDispatch();
 
