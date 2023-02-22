@@ -3,13 +3,17 @@ import BsPersonFill from "../../components/BsPersonFill/BsPersonFill";
 import TranslationCard from "../../components/TranslationCard/TranslationCard";
 import CgLogOut from "../../components/CgLogOut/CgLogOut";
 import "./ProfilePage.css";
-import { removeUser } from "../../store/userSlice";
+import { removeUser, setTranslationAsync } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
    const user = useSelector(state=>state.user);
    const navigate = useNavigate();
    const dispatch = useDispatch();
+
+   function onDeleteTranslationHistory(){
+    dispatch(setTranslationAsync({id:user.id,translations:[]}));
+   }
 
   return (
     <div className="ProfilePage">
@@ -25,10 +29,13 @@ export default function ProfilePage() {
       
 
       <div className="translation-history-wrapper">
+        <div className="translation-history-title-button-wrapper">
          <h1>Translation History</h1>
+         <button className="translation-history-delete-button" onClick={onDeleteTranslationHistory}>Delete history</button>
+        </div>
          <div className="translation-history-display">
             {
-               user.translate ? user.translate.map(elem => <TranslationCard sentence={elem} />): null
+               user.translations ? user.translations.map(elem => <TranslationCard sentence={elem} />): null
             }
          </div>
       </div>
