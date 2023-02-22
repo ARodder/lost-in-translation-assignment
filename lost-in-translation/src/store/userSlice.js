@@ -13,6 +13,7 @@ export const getUserAsync = createAsyncThunk(
     
       const createResponse = await fetch(process.env.REACT_APP_API_URL + "/translations", {
          method: "post",
+         mode:"cors",
          headers: {
            "X-API-Key": process.env.REACT_APP_API_KEY,
            "Content-Type": "application/json",
@@ -38,6 +39,7 @@ export const setTranslationAsync = createAsyncThunk(
       console.log()
       const response = await fetch(process.env.REACT_APP_API_URL+"/translations/"+payload.id,{
          method: "PATCH",
+         mode:"cors",
          headers: {
            "X-API-Key": process.env.REACT_APP_API_KEY,
            "Content-Type": "application/json",
